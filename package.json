@@ -1,0 +1,158 @@
+{
+  "name": "autolua2-debugger",
+  "displayName": "autolua2-debugger",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Debuggers"
+  ],
+  "publisher": "lizhizhuanshu",
+  "activationEvents": [
+    "onDebug"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "Debugger Info",
+        "properties": {
+          "autolua2.debugger.targetHost": {
+            "type": "string",
+            "description": "target host ip or domain",
+            "default": ""
+          },
+          "autolua2.debugger.targetPort": {
+            "type": "number",
+            "description": "target port",
+            "default": 8176
+          },
+          "autolua2.debugger.token": {
+            "type": "string",
+            "description": "auth token"
+          }
+        }
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "autolua2-debugger",
+        "languages": [
+          "lua"
+        ],
+        "label": "autolua2  debugger",
+        "program": "./out/debugAdapter.js",
+        "runtime": "node",
+        "configurationAttributes": {
+          "launch": {
+            "required": [
+              "startFile",
+              "targetHost",
+              "targetPort",
+              "token",
+              "targetType"
+            ],
+            "properties": {
+              "startFile": {
+                "type": "string",
+                "description": "start file path",
+                "default": "^\"\\${file}\""
+              },
+              "targetHost": {
+                "type": "string",
+                "description": "target host ip or domain"
+              },
+              "targetPort": {
+                "type": "number",
+                "description": "target port",
+                "default": 8176
+              },
+              "token": {
+                "type": "string",
+                "description": "auth token",
+                "default": "AutoLuaByLiZhi"
+              },
+              "targetType": {
+                "type": "string",
+                "description": "target type (auto, ui, back)",
+                "default": "auto"
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "autolua2-debugger",
+            "name": "autolua2 launch",
+            "request": "launch",
+            "startFile": "${file}",
+            "targetPort": 8176,
+            "token": "AutoLuaByLiZhi",
+            "targetType": "auto"
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "autolua2 debugger",
+            "body": {
+              "type": "autolua2-debugger",
+              "name": "autolua2 launch",
+              "request": "launch",
+              "startFile": "^\"\\${file}\"",
+              "targetPort": 8176,
+              "token": "AutoLuaByLiZhi",
+              "targetType": "auto"
+            }
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "autolua2-debugger.packageProject",
+        "title": "Package Project",
+        "category": "autolua2"
+      },
+      {
+        "command": "autolua2-debugger.pushProject",
+        "title": "Push Project",
+        "category": "autolua2"
+      },
+      {
+        "command": "autolua2-debugger.screenShot",
+        "title": "Screen Shot",
+        "category": "autolua2"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "await-notify": "^1.0.1",
+    "axios": "^1.7.2",
+    "moment": "^2.30.1",
+    "protobufjs": "^7.3.0",
+    "vscode-debugadapter": "^1.51.0"
+  }
+}
