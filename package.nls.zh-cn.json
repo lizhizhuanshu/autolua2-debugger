@@ -1,0 +1,15 @@
+
+{
+  "config.debugger.title":"调试设置",
+  "config.debugger.targetHost.description":"手机或模拟器的 IP 地址",
+  "config.debugger.targetPort.description":"手机或模拟器的端口",
+  "config.debugger.token.description":"调试器的 token 用于验证",
+  "config.debugger.api_version.description":"代码提示的 API 版本",
+  "debug.label":"autolua2 调试器",
+  "debug.config.startFile.description":"调试器启动的文件",
+  "debug.config.targetType":"开始调试的类型 (auto,ui,back) 默认是 auto",
+  "command.packageProject":"打包项目",
+  "command.pushProject":"推送项目到手机",
+  "command.screenShot":"截图",
+  "command.updateApiHint":"更新 API 提示"
+}

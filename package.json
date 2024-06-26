@@ -3,35 +3,53 @@
   "displayName": "autolua2-debugger",
   "description": "",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lizhizhuanshu/autolua2-debugger.git"
+  },
+  "homepage": "https://github.com/lizhizhuanshu/autolua2-debugger.git",
   "engines": {
     "vscode": "^1.89.0"
   },
+  "extensionDependencies": [
+    "sumneko.lua"
+  ],
+  "extensionPack": [
+    "sumneko.lua"
+  ],
   "categories": [
     "Debuggers"
   ],
   "publisher": "lizhizhuanshu",
   "activationEvents": [
-    "onDebug"
+    "onDebug",
+    "onLanguage:lua"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": [
       {
-        "title": "Debugger Info",
+        "title": "%config.debugger.title%",
         "properties": {
           "autolua2.debugger.targetHost": {
             "type": "string",
-            "description": "target host ip or domain",
+            "description": "%config.debugger.targetHost.description%",
             "default": ""
           },
           "autolua2.debugger.targetPort": {
             "type": "number",
-            "description": "target port",
+            "description": "%config.debugger.targetPort.description%",
             "default": 8176
           },
           "autolua2.debugger.token": {
             "type": "string",
-            "description": "auth token"
+            "description": "%config.debugger.token.description%",
+            "default": "AutoLuaByLiZhi"
+          },
+          "autolua2.debugger.api_version":{
+            "type": "string",
+            "description": "%config.debugger.api_version.description%",
+            "default": "0.0.1"
           }
         }
       }
@@ -42,7 +60,7 @@
         "languages": [
           "lua"
         ],
-        "label": "autolua2  debugger",
+        "label": "%debug.label%",
         "program": "./out/debugAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
@@ -57,21 +75,21 @@
             "properties": {
               "startFile": {
                 "type": "string",
-                "description": "start file path",
+                "description": "%debug.config.startFile.description%",
                 "default": "^\"\\${file}\""
               },
               "targetHost": {
                 "type": "string",
-                "description": "target host ip or domain"
+                "description": "%config.debugger.targetHost.description%"
               },
               "targetPort": {
                 "type": "number",
-                "description": "target port",
+                "description": "%configure.debugger.targetPort.description%",
                 "default": 8176
               },
               "token": {
                 "type": "string",
-                "description": "auth token",
+                "description": "%config.debugger.token.description%",
                 "default": "AutoLuaByLiZhi"
               },
               "targetType": {
@@ -112,18 +130,23 @@
     "commands": [
       {
         "command": "autolua2-debugger.packageProject",
-        "title": "Package Project",
+        "title": "%command.packageProject%",
         "category": "autolua2"
       },
       {
         "command": "autolua2-debugger.pushProject",
-        "title": "Push Project",
+        "title": "%command.pushProject%",
         "category": "autolua2"
       },
       {
         "command": "autolua2-debugger.screenShot",
-        "title": "Screen Shot",
+        "title": "%command.screenShot%",
         "category": "autolua2"
+      },
+      {
+        "command":"autolua2-debugger.ensureHint",
+        "title":"%command.updateApiHint%",
+        "category":"autolua2"
       }
     ]
   },

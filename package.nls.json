@@ -1,0 +1,15 @@
+
+{
+  "config.debugger.title":"Debug Settings",
+  "config.debugger.targetHost.description":"The phone or emulator IP",
+  "config.debugger.targetPort.description":"The phone or emulator port number",
+  "config.debugger.token.description":"The token to use for debugging",
+  "config.debugger.api_version.description":"The API version to use for hint",
+  "debug.label":"autolua2 debugger",
+  "debug.config.startFile.description":"The file to start debugging",
+  "debug.config.targetType":"debug target type (auto,ui,back) default is auto",
+  "command.packageProject":"Package Project",
+  "command.pushProject":"Push Project",
+  "command.screenShot":"Screen Shot",
+  "command.updateApiHint":"Update API Hint"
+}

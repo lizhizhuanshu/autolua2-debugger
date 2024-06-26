@@ -6,7 +6,7 @@ import {packageProject, pushProject} from './pushProject';
 import { window } from 'vscode';
 import testHttp from './testHttp';
 import requestScreenShot from './requestScreenShot';
-
+import ensureApiHint from './commands/ensureApiHint';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -34,6 +34,12 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("autolua2-debugger.screenShot", ()=>{
 		requestScreenShot();
 	}) )
+
+	context.subscriptions.push(vscode.commands.registerCommand("autolua2-debugger.ensureHint", ()=>{
+		ensureApiHint(context.extensionPath);
+	}));
+
+	ensureApiHint(context.extensionPath);
 
 }
 
