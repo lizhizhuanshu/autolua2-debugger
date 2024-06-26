@@ -49,7 +49,7 @@
           "autolua2.debugger.api_version":{
             "type": "string",
             "description": "%config.debugger.api_version.description%",
-            "default": "0.0.1"
+            "default": "v1.x"
           }
         }
       }

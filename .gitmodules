@@ -1,0 +1,4 @@
+[submodule "annotation_v1"]
+	path = resources/api/v1.x
+	url = https://github.com/lizhizhuanshu/autolua_annotation.git
+	branch = v1.x

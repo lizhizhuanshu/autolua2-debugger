@@ -8,7 +8,7 @@ function findIndexStartingWith(arr: string[], prefix: string): number {
 }
 
 export default function ensureApiHint(extensionPath:string){
-  const version = getConfigure<string>("autolua2-debugger","api_version") || "0.0.1"
+  const version = getConfigure<string>("autolua2-debugger","api_version") || "v1.x"
   let apiDir = path.join(extensionPath,"resources","api")
   const targetPath = path.join(apiDir,version)
   const nowPaths = getConfigure<string[]>(`Lua.workspace`,"library") || []
